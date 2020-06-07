@@ -1,0 +1,19 @@
+#startScreen {
+    text-align: center;
+    background-color: #d4bd8cf0;
+    border: outset #93825cf0;
+    padding: 10px;
+    margin: 30vh auto;
+}
+
+body {
+    background-color:#ffdb3d;
+}
+
+.qaContainer {
+    text-align: center;
+    background-color: #d4bd8cf0;
+    border: outset #93825cf0;
+    padding: 10px;
+    margin: 30vh auto;
+}
