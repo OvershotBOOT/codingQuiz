@@ -2,42 +2,76 @@ var startButtonEl
 var startScreenEl
 var qaBlocks
 var answers1
-var correctAnswer1
 var answers2
 var answers3
 var answers4
 var answers5
 var answers6
-var currentAnswer
+var correctAnswer1
+var correctAnswer2
+var correctAnswer3
+var correctAnswer4
+var correctAnswer5
+var correctAnswer6
 
 startButtonEl = document.getElementById('startButton');
 startScreenEl = document.getElementById('startScreen');
 
 startButtonEl.addEventListener('click', function() {
     startScreenEl.style.display = 'none'
+    qaBlocks[0].style.display = 'inline'
+
 })
 
-qaContainer = document.querySelectorAll('.qaContainer')
-
-console.log(qaContainer)
+qaBlocks = document.querySelectorAll('.qaContainer')
 
 answers1 = document.querySelectorAll('.buttonAnswer1')
-
-console.log(answers1)
+answers2 = document.querySelectorAll('.buttonAnswer2')
+answers3 = document.querySelectorAll('.buttonAnswer3')
+answers4 = document.querySelectorAll('.buttonAnswer4')
+answers5 = document.querySelectorAll('.buttonAnswer5')
+answers6 = document.querySelectorAll('.buttonAnswer6')
 
 correctAnswer1 = answers1[0].innerHTML
+correctAnswer2 = answers2[1].innerHTML
+correctAnswer3 = answers3[0].innerHTML
+correctAnswer4 = answers4[2].innerHTML
+correctAnswer5 = answers5[2].innerHTML
+correctAnswer6 = answers6[0].innerHTML
 
-console.log(correctAnswer1)
+function blockDisplay (block) {
+    for (i = 0; i < block.length; i++) {
 
-function bigBoy (inputArr) {
+        console.log(block.length)
+        if (block[i].style.display === 'inline') {
+            block[i].style.display = 'none'
+            if (block[i+1] === undefined) {
+                break
+            }
+            block[i+1].style.display = 'inline'
+            break
+        }
+    }
+}
+
+function bigBoy (inputArr, correctAns) {
     for (var arrValue of inputArr) {
         arrValue.addEventListener('click', function() {
             console.log(this.innerHTML)
+            console.log(correctAns)
+            if (this.innerHTML == correctAns) {
+                blockDisplay(qaBlocks)
+            }
         })
     }
 }
 
-bigBoy (answers1)
+bigBoy (answers1, correctAnswer1)
+bigBoy (answers2, correctAnswer2)
+bigBoy (answers3, correctAnswer3)
+bigBoy (answers4, correctAnswer4)
+bigBoy (answers5, correctAnswer5)
+bigBoy (answers6, correctAnswer6)
 
 
 
