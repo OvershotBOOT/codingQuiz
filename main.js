@@ -19,7 +19,7 @@ startScreenEl = document.getElementById('startScreen');
 
 startButtonEl.addEventListener('click', function() {
     startScreenEl.style.display = 'none'
-    qaBlocks[0].style.display = 'inline'
+    qaBlocks[0].style.display = 'block'
 
 })
 
@@ -42,13 +42,12 @@ correctAnswer6 = answers6[0].innerHTML
 function blockDisplay (block) {
     for (i = 0; i < block.length; i++) {
 
-        console.log(block.length)
-        if (block[i].style.display === 'inline') {
+        if (block[i].style.display === 'block') {
             block[i].style.display = 'none'
             if (block[i+1] === undefined) {
                 break
             }
-            block[i+1].style.display = 'inline'
+            block[i+1].style.display = 'block'
             break
         }
     }
@@ -57,8 +56,6 @@ function blockDisplay (block) {
 function bigBoy (inputArr, correctAns) {
     for (var arrValue of inputArr) {
         arrValue.addEventListener('click', function() {
-            console.log(this.innerHTML)
-            console.log(correctAns)
             if (this.innerHTML == correctAns) {
                 blockDisplay(qaBlocks)
             }
