@@ -13,16 +13,15 @@ var correctAnswer3
 var correctAnswer4
 var correctAnswer5
 var correctAnswer6
+var timer
+var timeLeft
+
+timer = document.getElementById('timer')
+timeLeft = 90
+
 
 startButtonEl = document.getElementById('startButton');
 startScreenEl = document.getElementById('startScreen');
-
-startButtonEl.addEventListener('click', function() {
-    startScreenEl.style.display = 'none'
-    qaBlocks[0].style.display = 'block'
-
-})
-
 qaBlocks = document.querySelectorAll('.qaContainer')
 
 answers1 = document.querySelectorAll('.buttonAnswer1')
@@ -38,6 +37,24 @@ correctAnswer3 = answers3[0].innerHTML
 correctAnswer4 = answers4[2].innerHTML
 correctAnswer5 = answers5[2].innerHTML
 correctAnswer6 = answers6[0].innerHTML
+
+startButtonEl.addEventListener('click', function() {
+    startScreenEl.style.display = 'none'
+    qaBlocks[0].style.display = 'block'
+    setTime()
+})
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timer.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+            clearInterval(timerInterval)
+        }
+    }, 1000)
+}
+
 
 function blockDisplay (block) {
     for (i = 0; i < block.length; i++) {

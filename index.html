@@ -10,7 +10,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="row"></div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <h1 class='timerContainer'>
+                    <span id="timer">90</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-6 offset-3" id='startScreen'>
                 <p> 
                     The following game is a multiple choice, quiz game. There are 6 questions with about 
@@ -24,7 +33,7 @@
 
             <div class = "col-6 offset-3 qaContainer">
 
-                <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">
                         <p>
                             What is the correct format of an if statement?
@@ -60,7 +69,7 @@
 
             <div class = "col-6 offset-3 qaContainer">
 
-                <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">    
                         <p>
                             What are the three parts of a for loop?
@@ -96,7 +105,7 @@
 
             <div class = "col-6 offset-3 qaContainer">
 
-                               <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">
                         <p>
                             What are the three ways to assign initialize a variable in js
@@ -132,7 +141,7 @@
             </div>
             <div class = "col-6 offset-3 qaContainer">
 
-                               <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">
                         <p>
                             What are the three languages used to build webpagesa
@@ -167,7 +176,7 @@
             </div>
             <div class = "col-6 offset-3 qaContainer">
 
-                                <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">
                         <p>
                             Which of the following are the correct key words related to If statements in Javascript?
@@ -202,7 +211,7 @@
             </div>
             <div class = "col-6 offset-3 qaContainer">
 
-                               <div class="row" class="questionContainer">
+                <div class="row questionContainer">
                     <div class="col">
                         <p>
                             What are the data types in JS
@@ -259,6 +268,30 @@
                     </div>
                 </div>
             </div>
+            <div class = "col-6 offset-3 qaContainer">
+
+                <div class="row questionContainer">
+                    <div class="col">
+                        <p>
+                            Record your score?
+                        </p>
+                        <p id='score chart'>
+                            
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col">
+                        <input type='text'>
+                        <button type='button' id='scoreLogger'>Log score</button>
+                        <button type='button' id='restart'>Restart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src='main.js'></script>

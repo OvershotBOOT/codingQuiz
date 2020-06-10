@@ -18,3 +18,7 @@ body {
     margin: 30vh auto;
     display: none;
 }
+
+.timerContainer {
+    text-align: center;
+}
