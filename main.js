@@ -15,10 +15,17 @@ var correctAnswer5
 var correctAnswer6
 var timer
 var timeLeft
+var scoreBttn
+var restartBttn
+var scoreChart 
+
+scoreChart = document.getElementById('scoreChart')
 
 timer = document.getElementById('timer')
 timeLeft = 90
 
+scoreBttn = document.getElementById('scoreLogger')
+restartBttn = document.getElementById('restart')
 
 startButtonEl = document.getElementById('startButton');
 startScreenEl = document.getElementById('startScreen');
@@ -38,22 +45,49 @@ correctAnswer4 = answers4[2].innerHTML
 correctAnswer5 = answers5[2].innerHTML
 correctAnswer6 = answers6[0].innerHTML
 
+// Couldn't figure out how to make localStorage work
+
+// var finalScore = localStorage.getItem('score')
+
+// scoreBttn.addEventListener('click', function() {
+//     localStorage.setItem('score', timeLeft)
+//     scoreChart.textcontent = finalScore
+// })
+
+restartBttn.addEventListener('click', function() {
+    qaBlocks[6].style.display = 'none'
+    startScreenEl.style.display = 'block'
+    timer.textContent = 90
+    timeLeft = 90
+})
+
 startButtonEl.addEventListener('click', function() {
     startScreenEl.style.display = 'none'
     qaBlocks[0].style.display = 'block'
-    setTime()
+    setTime(qaBlocks)
 })
 
-function setTime() {
+function setTime(qablock) {
     var timerInterval = setInterval(function() {
         timeLeft--;
         timer.textContent = timeLeft;
 
-        if (timeLeft === 0) {
+        if (timeLeft === 0 || timeLeft < 0) {
+            clearInterval(timerInterval)
+            qablock[0].style.display = 'none'
+            qablock[1].style.display = 'none'
+            qablock[2].style.display = 'none'
+            qablock[3].style.display = 'none'
+            qablock[4].style.display = 'none'
+            qablock[5].style.display = 'none'
+            qablock[6].style.display = 'block'
+        }
+        if (qablock[6].style.display === 'block') {
             clearInterval(timerInterval)
         }
     }, 1000)
 }
+
 
 
 function blockDisplay (block) {
@@ -75,6 +109,9 @@ function bigBoy (inputArr, correctAns) {
         arrValue.addEventListener('click', function() {
             if (this.innerHTML == correctAns) {
                 blockDisplay(qaBlocks)
+            }
+            else {
+                timeLeft = timeLeft - 5
             }
         })
     }
